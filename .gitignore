@@ -1,0 +1,6 @@
+# dev artifacts
+.playwright-mcp/
+.claude/
+cv-*.png
+*.log
+.DS_Store
