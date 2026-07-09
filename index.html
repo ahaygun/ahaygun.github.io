@@ -196,6 +196,7 @@
     background: var(--bg);
     border: 2px solid var(--accent);
     box-shadow: 0 0 0 1px var(--line), 0 10px 28px rgba(0,0,0,.4);
+    filter: contrast(1.12) saturate(1.2) brightness(1.02);
   }
   .hero h1 {
     font-family: var(--display);
@@ -222,7 +223,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
-    max-width: 720px;
+    max-width: 960px;
     margin-top: 4px;
   }
   .hero .role {
@@ -235,12 +236,19 @@
     max-width: 600px;
   }
   .hero .role .dim { color: var(--muted); }
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
   .hero .stats {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    padding-top: 20px;
-    border-top: 1px solid var(--line);
   }
   .hero .stats > span {
     display: inline-flex;
@@ -266,7 +274,6 @@
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
-    margin-top: 6px;
   }
   .btn {
     display: inline-flex;
@@ -715,6 +722,7 @@
          data-en="I'm a Go-focused software developer with 3 years of experience. <span class='dim'>I've taken an active role in developing ERP systems end-to-end, from backend to frontend. In my personal time I practice with microservice architectures and high-performance APIs. I enjoy learning new technologies and approach the problems I face with a solution-oriented mindset.</span>">
         3 yıllık deneyime sahip, Go odaklı bir yazılım geliştiriciyim. <span class="dim">ERP sistemlerinin backend'den frontend'e uçtan uca geliştirilmesinde aktif rol aldım. Kişisel zamanlarımda mikroservis mimarileri ve yüksek performanslı API'ler üzerine pratikler yapıyorum. Yeni teknolojiler öğrenmeyi seviyor ve karşılaştığım problemlere çözüm odaklı yaklaşıyorum.</span>
       </p>
+      <div class="hero-meta">
       <div class="stats">
         <span><span data-tr="Konum" data-en="Based in">Konum</span> · <b>İstanbul</b></span>
         <span><span data-tr="Tecrübe" data-en="Experience">Tecrübe</span> · <b data-tr="3+ yıl" data-en="3+ years">3+ yıl</b></span>
@@ -731,6 +739,7 @@
         <a class="btn" href="https://www.linkedin.com/in/ahmet-hasan-aygün" target="_blank" rel="noopener">
           LinkedIn <span class="arrow">↗</span>
         </a>
+      </div>
       </div>
     </div>
   </section>
