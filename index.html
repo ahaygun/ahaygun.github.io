@@ -516,6 +516,41 @@
   }
   .skill-group li:hover .ico { fill: var(--accent); }
 
+  /* ─── Projects ─── */
+  .card .proj-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .card .proj-top h3 { margin: 0; }
+  .card .card-link {
+    font: 500 12px var(--mono);
+    color: var(--accent);
+    letter-spacing: .04em;
+    white-space: nowrap;
+    flex: none;
+    transition: color .2s ease;
+  }
+  .card .card-link:hover { color: var(--accent-2); text-decoration: underline; }
+  .card ul.tech {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .card ul.tech li {
+    font: 500 11.5px var(--sans);
+    padding: 5px 11px;
+    border: 1px solid var(--line-2);
+    background: var(--bg);
+    border-radius: 999px;
+    color: var(--ink-2);
+  }
+
   /* ─── Contact ─── */
   .contact-list {
     display: grid;
@@ -651,7 +686,8 @@
       <a href="#experience"><span class="n">02</span><span data-tr="Tecrübe" data-en="Work">Tecrübe</span></a>
       <a href="#education"><span class="n">03</span><span data-tr="Eğitim" data-en="Study">Eğitim</span></a>
       <a href="#skills"><span class="n">04</span><span data-tr="Yetkinlik" data-en="Skills">Yetkinlik</span></a>
-      <a href="#contact"><span class="n">05</span><span data-tr="İletişim" data-en="Contact">İletişim</span></a>
+      <a href="#projects"><span class="n">05</span><span data-tr="Projeler" data-en="Projects">Projeler</span></a>
+      <a href="#contact"><span class="n">06</span><span data-tr="İletişim" data-en="Contact">İletişim</span></a>
     </nav>
     <div class="meta">
       <span class="loc"><span data-tr="İstanbul · TR" data-en="Istanbul · TR">İstanbul · TR</span></span>
@@ -860,10 +896,39 @@
     </div>
   </section>
 
+  <!-- Projects -->
+  <section class="block reveal" id="projects">
+    <div class="head">
+      <span class="num"><b>05</b> / <span data-tr="Projeler" data-en="Projects">Projeler</span></span>
+      <h2 data-tr="Kişisel projeler." data-en="Side projects.">Kişisel projeler.</h2>
+    </div>
+    <div class="body">
+      <div class="cards">
+        <article class="card" data-tilt>
+          <div class="proj-top">
+            <h3>MeetingToMail</h3>
+            <a class="card-link" href="https://github.com/ahaygun/meeting-to-mail" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <p data-tr="Toplantı sesini kaydeder, metne döker, LLM ile özetler ve katılımcılara e-posta gönderir. whisper.cpp ve Ollama sayesinde <strong>uçtan uca offline / tamamen yerel</strong> çalışabilir — ses ve veri cihazdan hiç çıkmaz. Go tabanlı iş kuyruğu (PostgreSQL) ve SSE ile canlı ilerleme."
+             data-en="Records a meeting, transcribes it, summarizes it with an LLM, and emails the participants. Runs <strong>fully offline / on-device, end-to-end</strong> via whisper.cpp and Ollama — audio and data never leave the machine. Go-based job queue (PostgreSQL) with live progress over SSE.">
+            Toplantı sesini kaydeder, metne döker, LLM ile özetler ve katılımcılara e-posta gönderir. whisper.cpp ve Ollama sayesinde <strong>uçtan uca offline / tamamen yerel</strong> çalışabilir — ses ve veri cihazdan hiç çıkmaz. Go tabanlı iş kuyruğu (PostgreSQL) ve SSE ile canlı ilerleme.
+          </p>
+          <ul class="tech">
+            <li>Go</li>
+            <li>Vue</li>
+            <li>PostgreSQL</li>
+            <li>whisper.cpp</li>
+            <li>Ollama</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact -->
   <section class="block reveal" id="contact">
     <div class="head">
-      <span class="num"><b>05</b> / <span data-tr="İletişim" data-en="Contact">İletişim</span></span>
+      <span class="num"><b>06</b> / <span data-tr="İletişim" data-en="Contact">İletişim</span></span>
       <h2 data-tr="Bir merhaba de." data-en="Say hello.">Bir merhaba de.</h2>
     </div>
     <div class="body">
