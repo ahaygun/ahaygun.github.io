@@ -214,11 +214,12 @@
     padding: clamp(28px, 4vw, 44px) 0 clamp(16px, 2vw, 22px);
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: clamp(24px, 2.8vw, 40px);
+    column-gap: clamp(24px, 2.8vw, 40px);
+    row-gap: clamp(16px, 2vw, 26px);
     align-items: start;
     position: relative;
   }
-  .hero-content {
+  .hero-main {
     min-width: 0;
     display: flex;
     flex-direction: column;
@@ -237,6 +238,32 @@
     border: 2px solid var(--accent);
     box-shadow: 0 0 0 1px var(--line), 0 10px 28px rgba(0,0,0,.4);
     filter: contrast(1.08) saturate(1.05) brightness(1.03);
+  }
+  .hero-badge {
+    align-self: center;
+    justify-self: center;
+    width: clamp(52px, 5vw, 62px);
+    height: clamp(52px, 5vw, 62px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(160deg, var(--bg-3), var(--bg-2));
+    border: 1px solid var(--line-2);
+    box-shadow: 0 10px 24px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(20px, 2.1vw, 26px);
+    letter-spacing: -.02em;
+    color: var(--ink);
+    user-select: none;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .hero-badge b { color: var(--accent); font-weight: 600; }
+  .hero-badge:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: 0 14px 30px rgba(0,0,0,.4), 0 0 0 3px var(--accent-glow);
   }
   .hero h1 {
     font-family: var(--display);
@@ -680,7 +707,7 @@
   .reveal.in { opacity: 1; transform: none; }
 
   /* hero load */
-  .avatar, .hero-id, .hero .role, .hero-meta {
+  .avatar, .hero-id, .hero .role, .hero-meta, .hero-badge {
     opacity: 0;
     transform: translateY(14px);
     animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards;
@@ -689,6 +716,7 @@
   .hero-id     { animation-delay: .12s; }
   .hero .role  { animation-delay: .22s; }
   .hero-meta   { animation-delay: .34s; }
+  .hero-badge  { animation-delay: .42s; }
   @keyframes rise { to { opacity: 1; transform: none; } }
 
   /* Respect reduced-motion: kill entrance animation/transitions, show everything */
@@ -699,7 +727,7 @@
       transition-duration: .001ms !important;
     }
     html { scroll-behavior: auto; }
-    .js .reveal, .avatar, .hero-id, .hero .role, .hero-meta {
+    .js .reveal, .avatar, .hero-id, .hero .role, .hero-meta, .hero-badge {
       opacity: 1 !important;
       transform: none !important;
       animation: none !important;
@@ -748,6 +776,7 @@
   }
   @media (max-width: 600px) {
     .hero { grid-template-columns: 1fr; gap: 22px; }
+    .hero-badge { display: none; }
     .skill-group { grid-template-columns: 1fr; gap: 10px; }
     .skill-group h4 { padding-top: 0; }
   }
@@ -789,7 +818,7 @@
   <!-- Hero -->
   <section class="hero">
     <img class="avatar" src="avatar.png" width="200" height="200" alt="Ahmet Hasan Aygün" />
-    <div class="hero-content">
+    <div class="hero-main">
       <div class="hero-id">
         <h1>Ahmet Hasan Aygün<span class="accent">.</span></h1>
         <p class="title" data-tr="Full Stack Developer" data-en="Full Stack Developer">Full Stack Developer</p>
@@ -799,7 +828,9 @@
          data-en="I'm a Go-focused software developer with 3 years of experience. <span class='dim'>I've taken an active role in developing ERP systems end-to-end, from backend to frontend. In my personal time I practice with microservice architectures and high-performance APIs. I enjoy learning new technologies and approach the problems I face with a solution-oriented mindset.</span>">
         3 yıllık deneyime sahip, Go odaklı bir yazılım geliştiriciyim. <span class="dim">ERP sistemlerinin backend'den frontend'e uçtan uca geliştirilmesinde aktif rol aldım. Kişisel zamanlarımda mikroservis mimarileri ve yüksek performanslı API'ler üzerine pratikler yapıyorum. Yeni teknolojiler öğrenmeyi seviyor ve karşılaştığım problemlere çözüm odaklı yaklaşıyorum.</span>
       </p>
-      <div class="hero-meta">
+    </div>
+    <div class="hero-badge" aria-hidden="true">A<b>.</b>H</div>
+    <div class="hero-meta">
       <div class="stats">
         <span><span data-tr="Konum" data-en="Based in">Konum</span> · <b>İstanbul</b></span>
         <span><span data-tr="Tecrübe" data-en="Experience">Tecrübe</span> · <b data-tr="3+ yıl" data-en="3+ years">3+ yıl</b></span>
@@ -818,7 +849,6 @@
         </a>
       </div>
       </div>
-    </div>
   </section>
 
   <!-- Experience -->
