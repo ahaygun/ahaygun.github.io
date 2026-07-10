@@ -296,7 +296,15 @@
     letter-spacing: 0;
     text-transform: none;
     color: var(--muted);
+    transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .25s ease;
   }
+  .hero .stats > span:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,138,77,.5);
+    background: var(--bg-3);
+    box-shadow: 0 6px 18px rgba(0,0,0,.28);
+  }
+  .hero .stats > span:hover > span { color: var(--ink-2); }
   .hero .stats > span > span { color: var(--muted); }
   .hero .stats b {
     color: var(--ink);
