@@ -211,7 +211,7 @@
 
   /* ─── Hero ─── */
   .hero {
-    padding: clamp(28px, 4vw, 44px) 0 clamp(28px, 4vw, 48px);
+    padding: clamp(28px, 4vw, 44px) 0 clamp(16px, 2vw, 22px);
     display: grid;
     grid-template-columns: auto 1fr;
     gap: clamp(24px, 2.8vw, 40px);
@@ -489,32 +489,32 @@
 
   /* ─── Skills ─── */
   .skills {
-    columns: 240px 3;
-    column-gap: 14px;
+    display: flex;
+    flex-direction: column;
   }
   .skill-group {
-    break-inside: avoid;
-    -webkit-column-break-inside: avoid;
-    margin-bottom: 14px;
-    border: 1px solid var(--line);
-    background: var(--bg-2);
-    border-radius: var(--r);
-    padding: 18px;
-    transition: border-color .25s ease;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 14px 28px;
+    align-items: start;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
   }
-  .skill-group:hover { border-color: var(--line-2); }
+  .skill-group:first-child { border-top: 0; padding-top: 2px; }
+  .skill-group:last-child { padding-bottom: 2px; }
   .skill-group h4 {
     font: 500 11px var(--mono);
     text-transform: uppercase;
     letter-spacing: .2em;
     color: var(--muted);
-    margin: 0 0 16px;
+    margin: 0;
+    padding-top: 7px;
     display: flex;
     align-items: center;
     gap: 10px;
   }
   .skill-group h4::before {
-    content: ""; width: 6px; height: 6px;
+    content: ""; width: 6px; height: 6px; flex: none;
     background: var(--accent); border-radius: 50%;
   }
   .skill-group ul {
@@ -740,6 +740,8 @@
   }
   @media (max-width: 600px) {
     .hero { grid-template-columns: 1fr; gap: 22px; }
+    .skill-group { grid-template-columns: 1fr; gap: 10px; }
+    .skill-group h4 { padding-top: 0; }
   }
   @media (max-width: 420px) {
     .topbar .mark { font-size: 10px; gap: 6px; padding: 5px 0; }
