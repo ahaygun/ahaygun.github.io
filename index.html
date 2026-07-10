@@ -339,6 +339,8 @@
     flex-direction: column;
     gap: 14px;
   }
+  /* push this card to the bottom of its list (keeps a code repo as the first project) */
+  .card--last { order: 1; }
   .card {
     border: 1px solid var(--line);
     background: linear-gradient(180deg, var(--bg-2), var(--bg));
@@ -821,7 +823,7 @@
     </div>
     <div class="body">
       <div class="cards">
-        <article class="card" data-tilt>
+        <article class="card card--last" data-tilt>
           <div class="proj-top">
             <h3>Fatura-Fiş Botu</h3>
             <a class="card-link" href="fatura-fis-botu-poster.pdf" target="_blank" rel="noopener">Poster ↗</a>
