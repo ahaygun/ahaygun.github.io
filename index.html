@@ -29,7 +29,11 @@
     --muted: #949aa3;
     --accent: #ff8a4d;
     --accent-2: #ffc27d;
-    --accent-glow: rgba(255,138,77,.20);
+    --accent-rgb: 255,138,77;
+    --accent-2-rgb: 255,194,125;
+    --on-accent: #241206;
+    --on-accent-rgb: 36,18,6;
+    --accent-glow: rgba(var(--accent-rgb),.20);
     --cat: #17171c;
     --cat-hi: #34343e;
     --cat-eye: #ffd23f;
@@ -42,6 +46,16 @@
     --r: 14px;
   }
 
+  /* ─── Ocean teması (varsayılan Amber; body[data-palette="ocean"]) ─── */
+  body[data-palette="ocean"] {
+    --bg: #111c27; --bg-2: #1a2732; --bg-3: #22323f;
+    --line: #2d4150; --line-2: #3a5263;
+    --ink: #eef4f5; --ink-2: #c8d5d8; --muted: #93a7af;
+    --accent: #4ecfa0; --accent-2: #9fe8dd;
+    --accent-rgb: 78,207,160; --accent-2-rgb: 159,232,221;
+    --on-accent: #062018; --on-accent-rgb: 6,32,24;
+  }
+
   *, *::before, *::after { box-sizing: border-box; }
 
   html { scroll-behavior: smooth; }
@@ -51,14 +65,14 @@
     background: var(--bg);
     color: var(--ink);
     font-family: var(--sans);
-    font-size: 14.5px;
+    font-size: 15.5px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     background-image:
-      radial-gradient(1100px 780px at 96% -12%, rgba(255,138,77,.15), transparent 58%),
-      radial-gradient(820px 640px at -8% 14%, rgba(255,138,77,.06), transparent 55%),
+      radial-gradient(1100px 780px at 96% -12%, rgba(var(--accent-rgb),.15), transparent 58%),
+      radial-gradient(820px 640px at -8% 14%, rgba(var(--accent-rgb),.06), transparent 55%),
       radial-gradient(1500px 1050px at 50% 120%, rgba(0,0,0,.30), transparent 62%);
     background-attachment: fixed;
   }
@@ -74,6 +88,8 @@
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.28 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     z-index: 1;
   }
+
+  #bgfx { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 
   ::selection { background: var(--accent); color: var(--bg); }
 
@@ -182,7 +198,7 @@
   .navlinks a:hover::after { transform: translateX(-50%) scaleX(1); opacity: .9; }
   .navlinks a.is-active {
     color: var(--ink);
-    background: rgba(255,138,77,.12);
+    background: rgba(var(--accent-rgb),.12);
   }
   .navlinks a.is-active::after { transform: translateX(-50%) scaleX(1); opacity: 1; }
   .topbar .meta { display: flex; gap: 16px; align-items: center; }
@@ -212,6 +228,34 @@
     background: var(--ink);
   }
   .lang-toggle button:hover:not(.is-active) { color: var(--ink); }
+
+  .theme-toggle {
+    display: inline-flex;
+    gap: 6px;
+    padding: 4px;
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    background: var(--bg);
+  }
+  .theme-toggle .sw {
+    appearance: none;
+    width: 48px;
+    height: 29px;
+    padding: 0;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.16);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .15s ease, box-shadow .2s ease;
+  }
+  .theme-toggle .sw svg { width: 21px; height: 21px; display: block; }
+  .theme-toggle .sw:hover { transform: translateY(-1px); }
+  .theme-toggle .sw.is-active { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3.5px var(--ink); }
+  .theme-toggle .sw:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+  .sw--amber { background: linear-gradient(135deg, #ff8a4d, #ffc27d); color: #3a1a08; }
+  .sw--ocean { background: linear-gradient(135deg, #3fbf90, #9fe8dd); color: #062018; }
 
   /* ─── Hero ─── */
   .hero {
@@ -255,7 +299,7 @@
     border-radius: 999px;
     background: var(--accent);
     border: 1px solid #e0763a;
-    box-shadow: 0 6px 20px rgba(255,138,77,.18);
+    box-shadow: 0 6px 20px rgba(var(--accent-rgb),.18);
     user-select: none;
     transition: box-shadow .25s ease, filter .2s ease;
   }
@@ -264,7 +308,7 @@
     font-weight: 800;
     font-size: 17px;
     letter-spacing: -.01em;
-    color: #241206;
+    color: var(--on-accent);
     white-space: nowrap;
   }
   .hero-badge .mark b { color: #fff; }
@@ -279,13 +323,13 @@
     left: 0; right: 0; bottom: 16px;
     height: 2px;
     border-radius: 2px;
-    background: rgba(36,18,6,.26);
+    background: rgba(var(--on-accent-rgb),.26);
   }
   .hero-badge .cat {
     position: absolute;
     bottom: 15px;
     left: 0;
-    width: 60px;
+    width: 40px;
     height: 38px;
     transform-origin: bottom center;
     will-change: transform;
@@ -308,7 +352,7 @@
   .hero-badge .cat .s-roll { width: 63px; margin-left: -32px; z-index: 4; }
   .hero-badge:hover {
     filter: brightness(1.04);
-    box-shadow: 0 8px 26px rgba(255,138,77,.28);
+    box-shadow: 0 8px 26px rgba(var(--accent-rgb),.28);
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-badge .cat { transform: translateX(6px) !important; }
@@ -378,7 +422,7 @@
   }
   .hero .stats > span:hover {
     transform: translateY(-2px);
-    border-color: rgba(255,138,77,.5);
+    border-color: rgba(var(--accent-rgb),.5);
     background: var(--bg-3);
     box-shadow: 0 6px 18px rgba(0,0,0,.28);
   }
@@ -478,7 +522,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(400px 200px at var(--mx,50%) 0%, rgba(255,122,58,.07), transparent 70%);
+    background: radial-gradient(400px 200px at var(--mx,50%) 0%, rgba(var(--accent-rgb),.07), transparent 70%);
     opacity: 0;
     transition: opacity .35s ease;
   }
@@ -497,9 +541,9 @@
     letter-spacing: .18em;
     color: var(--accent);
     padding: 5px 10px;
-    border: 1px solid rgba(255,122,58,.28);
+    border: 1px solid rgba(var(--accent-rgb),.28);
     border-radius: 999px;
-    background: rgba(255,122,58,.06);
+    background: rgba(var(--accent-rgb),.06);
   }
   .card .when {
     font: 500 11px var(--mono);
@@ -527,7 +571,7 @@
     color: var(--ink-2);
     margin: 0;
     max-width: 620px;
-    font-size: 14px;
+    font-size: 16.5px;
     line-height: 1.6;
   }
   .card .lead {
@@ -559,7 +603,7 @@
     padding-left: 18px;
     max-width: 620px;
     color: var(--ink-2);
-    font-size: 13.5px;
+    font-size: 15.5px;
     line-height: 1.55;
   }
   .card .impact li::before {
@@ -840,6 +884,7 @@
 </style>
 </head>
 <body>
+<canvas id="bgfx" aria-hidden="true"></canvas>
 <div class="shell">
 
   <!-- Top bar -->
@@ -856,7 +901,14 @@
       <a href="#contact"><span class="n">05</span><span data-tr="İletişim" data-en="Contact">İletişim</span></a>
     </nav>
     <div class="meta">
-      <span class="loc"><span data-tr="İstanbul · TR" data-en="Istanbul · TR">İstanbul · TR</span></span>
+      <span class="theme-toggle" role="group" aria-label="Renk teması">
+        <button type="button" class="sw sw--amber is-active" data-theme="amber" aria-label="Amber — sıcak tema" title="Amber (sıcak)">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+        </button>
+        <button type="button" class="sw sw--ocean" data-theme="ocean" aria-label="Ocean — serin tema" title="Ocean (serin)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 1.3 0 1.9-.5 2.5-1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 1.3 0 1.9-.5 2.5-1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 1.3 0 1.9-.5 2.5-1"/></svg>
+        </button>
+      </span>
       <span class="lang-wrap">
         <span class="lang-toggle" role="group" aria-label="Language">
           <button type="button" data-lang="tr" class="is-active">TR</button>
@@ -1366,9 +1418,9 @@
     if(bar) bar.style.cursor="url(\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2226%22%20height%3D%2226%22%20viewBox%3D%220%200%2012%2012%22%3E%3Crect%20x%3D%224%22%20y%3D%220%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%220%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%220%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%220%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ffb6c1%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ffb6c1%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ffb6c1%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2211%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ffb6c1%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2211%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ffb6c1%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2211%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ffb6c1%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2211%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3C%2Fsvg%3E\") 13 13, auto";
     var mq=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)');
     if(mq&&mq.matches){ return; }
-    var INSET=2, CAT_W=60, SPEED=0.35, CHASE=1.4, ARRIVE=2, PLAY_RANGE=34, WAIT=2000, BOUNCE=1.5, NEAR=85;
+    var INSET=0, CAT_W=40, SPEED=0.35, CHASE=1.4, ARRIVE=2, PLAY_RANGE=34, WAIT=2000, BOUNCE=1.5, NEAR=85;
     var catX=INSET, facing=1, dist=0, ambTarget=null, ambPhase='go', ambWaitEnd=0,
-        haveMouse=false, mx=0, my=0, prevInt=false, raf=null, on=false;
+        haveMouse=false, mx=0, my=0, prevInt=false, rdist=0, lastRx=null, raf=null, on=false;
     document.addEventListener('mousemove',function(e){ haveMouse=true; mx=e.clientX; my=e.clientY; });
     document.addEventListener('mouseleave',function(){ haveMouse=false; });
     function clamp(v,a,b){return v<a?a:v>b?b:v;}
@@ -1395,13 +1447,17 @@
       var overBar=interactive && my<=rect.bottom+18 && my>=rect.top-18;
       var playing=interactive && !moving && overBar && ad<=PLAY_RANGE;
       if(playing) facing=(mx>rect.left+catX+CAT_W/2)?1:-1;
+      var Ws=playing?63:(moving?(interactive?53:55):27), half=Ws/2, M=4;
+      var rx=Math.max(half-20+M, Math.min(catX, run.clientWidth-20-half-M));
+      if(lastRx==null) lastRx=rx;
+      rdist+=Math.abs(rx-lastRx); lastRx=rx;
       var yy=0, rot=0;
-      if(moving) yy=-BOUNCE*Math.abs(Math.sin((dist/16)*Math.PI));
+      if(moving) yy=-BOUNCE*Math.abs(Math.sin((rdist/16)*Math.PI));
       else if(playing){ yy=-2*Math.abs(Math.sin(now/130)); rot=2.5*Math.sin(now/160); }
-      cat.style.transform='translate('+catX+'px,'+yy+'px) rotate('+rot+'deg)';
+      cat.style.transform='translate('+rx+'px,'+yy+'px) rotate('+rot+'deg)';
       var cur;
       if(playing) cur=roll;
-      else if(moving){ var F=interactive?runF:walkF, st=interactive?14:8; cur=F[Math.floor(dist/st)%F.length]; }
+      else if(moving){ var F=interactive?runF:walkF, st=interactive?14:8; cur=F[Math.floor(rdist/st)%F.length]; }
       else cur=sit;
       showOnly(cur);
       var sc='scaleX('+facing+')'; for(var i=0;i<uniq.length;i++) uniq[i].style.transform=sc;
@@ -1412,6 +1468,90 @@
     if('IntersectionObserver' in window){
       new IntersectionObserver(function(en){en.forEach(function(x){x.isIntersecting?startLoop():stopLoop();});},{threshold:0}).observe(cat);
     } else startLoop();
+  })();
+  </script>
+
+  <script>
+  /* Renk teması (Amber varsayılan / Ocean) + kenarda süzülen kıvılcım zemini */
+  (function(){
+    "use strict";
+    var body=document.body;
+    var META_TC={amber:'#262a30', ocean:'#111c27'};      // tarayıcı chrome rengi
+    var swatches=document.querySelectorAll('.theme-toggle .sw');
+    var metaTC=document.querySelector('meta[name="theme-color"]');
+    var rebuildSprite=function(){};                       // kıvılcım bloğu doldurur
+    function load(){ try{ return localStorage.getItem('cv-palette'); }catch(e){ return null; } }
+    function save(t){ try{ localStorage.setItem('cv-palette', t); }catch(e){} }
+    function setTheme(t){
+      if(t!=='ocean') t='amber';
+      if(t==='amber') body.removeAttribute('data-palette'); else body.setAttribute('data-palette', t);
+      for(var i=0;i<swatches.length;i++) swatches[i].classList.toggle('is-active', swatches[i].getAttribute('data-theme')===t);
+      if(metaTC) metaTC.setAttribute('content', META_TC[t]);
+      save(t); rebuildSprite();
+    }
+    for(var i=0;i<swatches.length;i++)(function(b){
+      b.addEventListener('click', function(){ setTheme(b.getAttribute('data-theme')); });
+    })(swatches[i]);
+
+    /* ── kenar kıvılcımları (canvas) ── */
+    var canvas=document.getElementById('bgfx'), ctx=canvas&&canvas.getContext&&canvas.getContext('2d');
+    var shell=document.querySelector('.shell');
+    var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(canvas&&ctx&&shell){
+      var W=innerWidth, H=innerHeight, dpr=Math.min(2, window.devicePixelRatio||1);
+      var PAD=6, bandL=0, bandR=W, px=-999, py=-999, hasP=false, parts=[], sprite=null;
+      function rr(){ return Math.random(); }
+      function clamp(v,a,b){ return v<a?a:v>b?b:v; }
+      function cssv(n){ return getComputedStyle(body).getPropertyValue(n).trim(); }
+      rebuildSprite=function(){
+        var a2=cssv('--accent-2-rgb')||'255,194,125', a=cssv('--accent-rgb')||'255,138,77';
+        var s=document.createElement('canvas'); s.width=s.height=48;
+        var c=s.getContext('2d'), g=c.createRadialGradient(24,24,0,24,24,24);
+        g.addColorStop(0,'rgba('+a2+',.95)'); g.addColorStop(.35,'rgba('+a+',.5)'); g.addColorStop(1,'rgba('+a+',0)');
+        c.fillStyle=g; c.fillRect(0,0,48,48); sprite=s;
+      };
+      /* SOL kolon (avatar/rozet/başlık) serbest — kıvılcımlar nesnelerin arkasında kalır (canvas z-index:0).
+         Yasak = yalnız ORTADAKİ ana metin kolonu: .hero-main (isim/bio) + .cards (bölüm içerikleri). */
+      function zone(){ var r=shell.getBoundingClientRect(), cs=getComputedStyle(shell);
+        var pr=parseFloat(cs.paddingRight)||0;
+        var mainLeft=Infinity, els=document.querySelectorAll('.hero-main, .cards');
+        for(var i=0;i<els.length;i++){ var l=els[i].getBoundingClientRect().left; if(l<mainLeft) mainLeft=l; }
+        if(!isFinite(mainLeft)) mainLeft=r.left+(parseFloat(cs.paddingLeft)||0);
+        bandL=Math.max(0, mainLeft-PAD); bandR=Math.min(W, r.right-pr+PAD); }
+      /* yalnız dış kenarda üre (sol/sağ boşluk) — içerik sütununa hiç girmez */
+      function spawnX(){ var lw=Math.max(0,bandL), rw=Math.max(0,W-bandR), t=lw+rw;
+        if(t<10) return rr()*W;
+        return (rr()*t<lw) ? rr()*bandL : bandR+rr()*(W-bandR); }
+      /* içerik sütununda parlaklık 0 → yazı/görsel üstüne kıvılcım GELMEZ; kenara doğru yumuşak geçiş */
+      function edgeA(x){ var soft=35;
+        if(x<=bandL) return clamp((bandL-x)/soft,0,1);
+        if(x>=bandR) return clamp((x-bandR)/soft,0,1);
+        return 0; }
+      function build(){ zone();
+        var gutter=Math.max(0,bandL)+Math.max(0,W-bandR);
+        var n=Math.round(clamp(gutter*H/2200, 80, 700)); parts=[];
+        for(var i=0;i<n;i++) parts.push({x:spawnX(), y:rr()*H, vy:rr()*.30+.10, drift:(rr()-.5)*.34, ph:rr()*6.28, sp:rr()*.02+.008, r:rr()*6+2.5, a:rr()*.5+.30}); }
+      function resize(){ W=innerWidth; H=innerHeight; canvas.width=W*dpr; canvas.height=H*dpr;
+        canvas.style.width=W+'px'; canvas.style.height=H+'px'; ctx.setTransform(dpr,0,0,dpr,0,0); build(); if(reduced) draw(); }
+      function draw(){ ctx.clearRect(0,0,W,H); ctx.globalCompositeOperation='lighter';
+        for(var i=0;i<parts.length;i++){ var p=parts[i];
+          if(!reduced){ p.y-=p.vy; p.x+=p.drift; p.ph+=p.sp;
+            if(hasP){ var cx=p.x-px, cy=p.y-py, d2=cx*cx+cy*cy, R=120;
+              if(d2<R*R&&d2>1){ var f=(1-Math.sqrt(d2)/R)*1.6, inv=1/Math.sqrt(d2); p.x+=cx*inv*f; p.y+=cy*inv*f; } }
+            if(p.y<-16){ p.y=H+16; p.x=spawnX(); }
+            if(p.x<-16)p.x=W+16; else if(p.x>W+16)p.x=-16; }
+          var flick=0.6+0.4*Math.sin(p.ph), vis=edgeA(p.x); if(vis<=0) continue;
+          var r=p.r*(0.8+0.3*flick); ctx.globalAlpha=p.a*flick*vis; ctx.drawImage(sprite, p.x-r, p.y-r, r*2, r*2); }
+        ctx.globalAlpha=1; ctx.globalCompositeOperation='source-over'; }
+      function loop(){ draw(); requestAnimationFrame(loop); }
+      rebuildSprite();
+      window.addEventListener('pointermove', function(e){ px=e.clientX; py=e.clientY; hasP=true; if(reduced) draw(); }, {passive:true});
+      window.addEventListener('resize', resize);
+      resize();
+      if(!reduced) requestAnimationFrame(loop);
+    }
+
+    setTheme(load()||'amber');
   })();
   </script>
 </body>
