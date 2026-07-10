@@ -10,6 +10,7 @@
 <meta property="og:description" content="Junior Full Stack Developer · İstanbul" />
 <meta property="og:type" content="profile" />
 <meta name="theme-color" content="#262a30" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='15' fill='%23ff8a4d'/><text x='32' y='34' text-anchor='middle' dominant-baseline='central' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='30' letter-spacing='-1.5' fill='%23262a30'>AH</text></svg>" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,8 +52,9 @@
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     background-image:
-      radial-gradient(1000px 700px at 95% -10%, rgba(255,138,77,.10), transparent 60%),
-      radial-gradient(800px 600px at -10% 15%, rgba(255,138,77,.05), transparent 55%);
+      radial-gradient(1100px 780px at 96% -12%, rgba(255,138,77,.15), transparent 58%),
+      radial-gradient(820px 640px at -8% 14%, rgba(255,138,77,.06), transparent 55%),
+      radial-gradient(1500px 1050px at 50% 120%, rgba(0,0,0,.30), transparent 62%);
     background-attachment: fixed;
   }
 
@@ -190,16 +192,17 @@
     max-width: 960px;
   }
   .avatar {
-    width: clamp(120px, 18vw, 200px);
-    height: clamp(120px, 18vw, 200px);
+    width: clamp(140px, 19vw, 232px);
+    height: clamp(140px, 19vw, 232px);
     border-radius: 50%;
     object-fit: cover;
     flex: none;
+    align-self: center;
     padding: 3px;
     background: var(--bg);
     border: 2px solid var(--accent);
     box-shadow: 0 0 0 1px var(--line), 0 10px 28px rgba(0,0,0,.4);
-    filter: contrast(1.12) saturate(1.2) brightness(1.02);
+    filter: contrast(1.08) saturate(1.05) brightness(1.03);
   }
   .hero h1 {
     font-family: var(--display);
@@ -231,7 +234,7 @@
     letter-spacing: -.01em;
     max-width: 880px;
   }
-  .hero .role .dim { color: var(--muted); }
+  .hero .role .dim { color: var(--ink-2); }
   .hero-meta {
     display: flex;
     justify-content: space-between;
