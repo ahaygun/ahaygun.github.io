@@ -65,7 +65,7 @@
     background: var(--bg);
     color: var(--ink);
     font-family: var(--sans);
-    font-size: 15.5px;
+    font-size: 17.5px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -272,7 +272,7 @@
     display: flex;
     flex-direction: column;
     gap: clamp(20px, 2.2vw, 32px);
-    max-width: 960px;
+    max-width: 1120px;
   }
   .avatar {
     width: clamp(140px, 18vw, 224px);
@@ -348,7 +348,7 @@
   .hero-badge .cat .s-walk { width: 55px; margin-left: -28px; z-index: 1; }
   .hero-badge .cat .s-run  { width: 53px; margin-left: -27px; z-index: 1; }
   .hero-badge .cat .s-walka, .hero-badge .cat .s-walkb { width: 55px; margin-left: -28px; z-index: 1; }
-  .hero-badge .cat .s-runa, .hero-badge .cat .s-runb { width: 53px; margin-left: -27px; z-index: 1; }
+  .hero-badge .cat .s-runa, .hero-badge .cat .s-runb, .hero-badge .cat .s-runc, .hero-badge .cat .s-rund, .hero-badge .cat .s-rune, .hero-badge .cat .s-runf { width: 53px; margin-left: -27px; z-index: 1; }
   .hero-badge .cat .s-roll { width: 63px; margin-left: -32px; z-index: 4; }
   .hero-badge:hover {
     filter: brightness(1.04);
@@ -383,11 +383,11 @@
   .hero .role {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(16px, 1.7vw, 20px);
+    font-size: clamp(18px, 1.9vw, 22.5px);
     line-height: 1.45;
     color: var(--ink);
     letter-spacing: -.01em;
-    max-width: 880px;
+    max-width: 1040px;
     margin: 0;
   }
   .hero .role .dim { color: var(--ink-2); }
@@ -553,7 +553,7 @@
   }
   .card h3 {
     font-family: var(--display);
-    font-size: clamp(17px, 1.8vw, 21px);
+    font-size: clamp(19px, 2vw, 23.5px);
     font-weight: 500;
     line-height: 1.25;
     letter-spacing: -.018em;
@@ -570,8 +570,8 @@
   .card p {
     color: var(--ink-2);
     margin: 0;
-    max-width: 620px;
-    font-size: 16.5px;
+    max-width: 860px;
+    font-size: 18.5px;
     line-height: 1.6;
   }
   .card .lead {
@@ -601,9 +601,9 @@
   .card .impact li {
     position: relative;
     padding-left: 18px;
-    max-width: 620px;
+    max-width: 860px;
     color: var(--ink-2);
-    font-size: 15.5px;
+    font-size: 17.5px;
     line-height: 1.55;
   }
   .card .impact li::before {
@@ -943,6 +943,10 @@
           <img class="s s-run" src="cat-run.png" alt="" aria-hidden="true">
           <img class="s s-runa" src="cat-run-a.png" alt="" aria-hidden="true">
           <img class="s s-runb" src="cat-run-b.png" alt="" aria-hidden="true">
+          <img class="s s-runc" src="cat-run-c.png" alt="" aria-hidden="true">
+          <img class="s s-rund" src="cat-run-d.png" alt="" aria-hidden="true">
+          <img class="s s-rune" src="cat-run-e.png" alt="" aria-hidden="true">
+          <img class="s s-runf" src="cat-run-f.png" alt="" aria-hidden="true">
           <img class="s s-sit" src="cat-sit.png" alt="" aria-hidden="true">
           <img class="s s-roll" src="cat-roll.png" alt="" aria-hidden="true">
         </span>
@@ -992,13 +996,13 @@
           <div class="impact">
             <span class="impact-label">Aid360</span>
             <ul>
-              <li data-tr="Yararlanıcı sponsorluğu, bağış ve proje modüllerinde uçtan uca (Go backend + Vue frontend) geliştirme yaptım."
-                  data-en="Delivered end-to-end features (Go backend + Vue frontend) across the beneficiary-sponsorship, donation and project modules.">
-                Yararlanıcı sponsorluğu, bağış ve proje modüllerinde uçtan uca (Go backend + Vue frontend) geliştirme yaptım.
+              <li data-tr="Sponsorluk, bağış ve proje modüllerinde uçtan uca (Go backend + Vue frontend) geliştirme yaptım."
+                  data-en="Delivered end-to-end features (Go backend + Vue frontend) across the sponsorship, donation and project modules.">
+                Sponsorluk, bağış ve proje modüllerinde uçtan uca (Go backend + Vue frontend) geliştirme yaptım.
               </li>
-              <li data-tr="Yapay zekâ ile çift dilli yararlanıcı yaşam öyküsü üretimi özelliğini kurdum — LLM entegrasyonu ve içerik güvenliği kontrolleriyle."
-                  data-en="Built an AI-powered, bilingual beneficiary life-story generator — LLM integration with content-safety and validation checks.">
-                Yapay zekâ ile çift dilli yararlanıcı yaşam öyküsü üretimi özelliğini kurdum — LLM entegrasyonu ve içerik güvenliği kontrolleriyle.
+              <li data-tr="Yapay zeka ile çok dilli metin üretimi sağlayan LLM entegrasyonunu güvenlik kontrolleriyle birlikte kurdum."
+                  data-en="Set up an LLM integration for AI-powered multilingual text generation, together with security checks.">
+                Yapay zeka ile çok dilli metin üretimi sağlayan LLM entegrasyonunu güvenlik kontrolleriyle birlikte kurdum.
               </li>
               <li data-tr="Bütün liste sayfalarında, aktif görünüme (seçili kolon ve filtrelere) göre dinamik olarak dışa aktaran bir Excel export sistemi kurdum."
                   data-en="Built an Excel export system that dynamically exports every listing page according to the active view (selected columns and filters).">
@@ -1008,19 +1012,19 @@
                   data-en="Built the in-app software request system.">
                 Uygulama içi yazılım talep sistemini kurdum.
               </li>
-              <li data-tr="Proje genelinde i18n ile 3 dilli çeviri altyapısını implemente ettim."
-                  data-en="Implemented project-wide three-language translation (i18n).">
-                Proje genelinde i18n ile 3 dilli çeviri altyapısını implemente ettim.
+              <li data-tr="Proje genelinde i18n ile 3 dilli hata mesajı çeviri altyapısını implemente ettim."
+                  data-en="Implemented a project-wide three-language error-message translation system (i18n).">
+                Proje genelinde i18n ile 3 dilli hata mesajı çeviri altyapısını implemente ettim.
               </li>
-              <li data-tr="Türkçe karakter duyarlı aramalar ile filtre ve sayfa sorgularında performans için SQL optimizasyonları yaptım."
-                  data-en="Built Turkish-character-aware search and optimized SQL for filter and pagination queries.">
-                Türkçe karakter duyarlı aramalar ile filtre ve sayfa sorgularında performans için SQL optimizasyonları yaptım.
+              <li data-tr="Projenin tamamında arama, filtre ve sayfalama sorgularında SQL sorguları yaptım."
+                  data-en="Wrote SQL queries for search, filtering and pagination across the entire project.">
+                Projenin tamamında arama, filtre ve sayfalama sorgularında SQL sorguları yaptım.
               </li>
             </ul>
           </div>
 
           <div class="impact">
-            <span class="impact-label">İdari İşler <span class="own" data-tr="· uçtan uca bende" data-en="· fully owned">· uçtan uca bende</span></span>
+            <span class="impact-label">İdari İşler</span>
             <ul>
               <li data-tr="Araç ve taşınmaz takibi; trafik cezası, bakım, sigorta süreçleri ve kullanıcı yönetimini geliştirdim."
                   data-en="Developed vehicle & real-estate tracking, plus traffic-fine, maintenance and insurance workflows and user management.">
@@ -1030,9 +1034,9 @@
                   data-en="Built data interfaces for vehicle and expense reporting.">
                 Araç raporlamaları ve gider raporlamaları için veri arayüzleri geliştirdim.
               </li>
-              <li data-tr="Toplantı salonu rezervasyon modülünü sıfırdan kurdum: takvim/slot arayüzü ve onay akışı."
-                  data-en="Built the meeting-room reservation module from scratch: calendar/slot UI and approval flow.">
-                Toplantı salonu rezervasyon modülünü sıfırdan kurdum: takvim/slot arayüzü ve onay akışı.
+              <li data-tr="Toplantı salonları için interaktif arayüzlü rezervasyon sistemi oluşturdum. Takvim görünümü ve admin onay akışını dizayn ettim."
+                  data-en="Built a meeting-room reservation system with an interactive UI; designed the calendar view and the admin approval flow.">
+                Toplantı salonları için interaktif arayüzlü rezervasyon sistemi oluşturdum. Takvim görünümü ve admin onay akışını dizayn ettim.
               </li>
             </ul>
           </div>
@@ -1064,13 +1068,21 @@
                   data-en="Three fraud rules, three techniques: velocity (Redis sliding window), impossible-travel (stateful last-location + gRPC cell-geo) and IRSF (premium-spend window).">
                 Üç fraud kuralı, üç farklı teknik: velocity (Redis kayan pencere), impossible-travel (stateful son-konum + gRPC hücre-coğrafya), IRSF (premium harcama penceresi).
               </li>
-              <li data-tr="MSISDN-key'li partition + manuel offset commit + record_id idempotency ile at-least-once teslim pratikte effectively-once; enrichment servisi düşse velocity ve pipeline çalışmaya devam eder."
-                  data-en="Partition-by-subscriber + manual offset commit + record_id idempotency make at-least-once effectively-once; velocity and the pipeline keep running even if the enrichment service is down.">
-                MSISDN-key'li partition + manuel offset commit + record_id idempotency ile at-least-once teslim pratikte effectively-once; enrichment servisi düşse velocity ve pipeline çalışmaya devam eder.
+              <li data-tr="MSISDN-key'li partition + manuel offset commit + record_id idempotency → at-least-once teslim pratikte effectively-once."
+                  data-en="Partition-by-subscriber + manual offset commit + record_id idempotency make at-least-once effectively-once.">
+                MSISDN-key'li partition + manuel offset commit + record_id idempotency → at-least-once teslim pratikte effectively-once.
               </li>
-              <li data-tr="Helm ile Kubernetes'e deploy; KEDA fraud tüketicisini Kafka lag'ine göre 1→3 replica'ya ölçekler. Prometheus + Grafana; ölçülmüş ~890 olay/s, p99 ~25 ms."
-                  data-en="Deployed to Kubernetes with Helm; KEDA autoscales the fraud consumer 1→3 on Kafka lag. Prometheus + Grafana; measured ~890 events/s at p99 ~25 ms.">
-                Helm ile Kubernetes'e deploy; KEDA fraud tüketicisini Kafka lag'ine göre 1→3 replica'ya ölçekler. Prometheus + Grafana; ölçülmüş ~890 olay/s, p99 ~25 ms.
+              <li data-tr="Enrichment servisi düşse bile velocity kuralı ve pipeline çalışmaya devam ediyor (graceful degradation)."
+                  data-en="Even if the enrichment service goes down, the velocity rule and the pipeline keep running (graceful degradation).">
+                Enrichment servisi düşse bile velocity kuralı ve pipeline çalışmaya devam ediyor (graceful degradation).
+              </li>
+              <li data-tr="Helm ile Kubernetes'e deploy; KEDA tüketiciyi Kafka lag'ine göre 1→3 replica'ya ölçekliyor."
+                  data-en="Deployed to Kubernetes with Helm; KEDA autoscales the consumer 1→3 on Kafka lag.">
+                Helm ile Kubernetes'e deploy; KEDA tüketiciyi Kafka lag'ine göre 1→3 replica'ya ölçekliyor.
+              </li>
+              <li data-tr="Prometheus + Grafana; ölçülmüş ~890 olay/s, p99 ~25 ms."
+                  data-en="Prometheus + Grafana; measured ~890 events/s at p99 ~25 ms.">
+                Prometheus + Grafana; ölçülmüş ~890 olay/s, p99 ~25 ms.
               </li>
             </ul>
           </div>
@@ -1167,21 +1179,25 @@
           </p>
           <div class="impact">
             <ul>
-              <li data-tr="İstemci bazlı token bucket rate limiting: in-memory ve Redis + Lua (dağıtık, atomik) iki backend; aşımda 429 + X-RateLimit-* header'ları."
-                  data-en="Per-client token-bucket rate limiting: in-memory and Redis + Lua (distributed, atomic) backends; 429 + X-RateLimit-* headers on breach.">
-                İstemci bazlı token bucket rate limiting: in-memory ve Redis + Lua (dağıtık, atomik) iki backend; aşımda 429 + X-RateLimit-* header'ları.
+              <li data-tr="İstemci bazlı token bucket rate limiting; in-memory ya da Redis + Lua ile dağıtık/atomik."
+                  data-en="Per-client token-bucket rate limiting; in-memory or distributed/atomic via Redis + Lua.">
+                İstemci bazlı token bucket rate limiting; in-memory ya da Redis + Lua ile dağıtık/atomik.
               </li>
               <li data-tr="Dayanıklılık: upstream başına circuit breaker + exponential backoff'lu retry."
                   data-en="Resilience: per-upstream circuit breaker + exponential-backoff retries.">
                 Dayanıklılık: upstream başına circuit breaker + exponential backoff'lu retry.
               </li>
-              <li data-tr="Gözlemlenebilirlik: Prometheus /metrics + hazır Grafana dashboard. Fault-injection demosunda upstream düşünce circuit 0→1 açılıp 503 ile hızlı başarısızlığa geçiyor, toparlanınca kapanıyor — steady-state ~115 req/s, p99 ~8 ms."
-                  data-en="Observability: Prometheus /metrics + a provisioned Grafana dashboard. In a fault-injection demo the circuit trips 0→1 when the upstream drops (503 fail-fast) and closes on recovery — ~115 req/s steady-state, p99 ~8 ms.">
-                Gözlemlenebilirlik: Prometheus /metrics + hazır Grafana dashboard. Fault-injection demosunda upstream düşünce circuit 0→1 açılıp 503 ile hızlı başarısızlığa geçiyor, toparlanınca kapanıyor — steady-state ~115 req/s, p99 ~8 ms.
+              <li data-tr="Gözlemlenebilirlik: Prometheus metrikleri + hazır Grafana dashboard."
+                  data-en="Observability: Prometheus metrics + a provisioned Grafana dashboard.">
+                Gözlemlenebilirlik: Prometheus metrikleri + hazır Grafana dashboard.
               </li>
-              <li data-tr="API-key auth, request-ID'li slog ve graceful shutdown; tüm yığın tek komutluk docker-compose demosuyla (gateway + Redis + upstream + Prometheus + Grafana) ayağa kalkıyor."
-                  data-en="API-key auth, request-ID'd slog and graceful shutdown; the whole stack comes up with a one-command docker-compose demo (gateway + Redis + upstream + Prometheus + Grafana).">
-                API-key auth, request-ID'li slog ve graceful shutdown; tüm yığın tek komutluk docker-compose demosuyla (gateway + Redis + upstream + Prometheus + Grafana) ayağa kalkıyor.
+              <li data-tr="Tek komutluk docker-compose ile tüm yığın ayağa kalkıyor; fault-injection demosunda circuit breaker'ın açılıp-kapanışı canlı izleniyor."
+                  data-en="The whole stack comes up with a one-command docker-compose; a fault-injection demo shows the circuit breaker tripping and recovering live.">
+                Tek komutluk docker-compose ile tüm yığın ayağa kalkıyor; fault-injection demosunda circuit breaker'ın açılıp-kapanışı canlı izleniyor.
+              </li>
+              <li data-tr="API-key auth, request-ID'li loglama ve graceful shutdown."
+                  data-en="API-key auth, request-ID'd logging and graceful shutdown.">
+                API-key auth, request-ID'li loglama ve graceful shutdown.
               </li>
             </ul>
           </div>
@@ -1413,8 +1429,8 @@
     var q=function(c){return cat.querySelector('.'+c);};
     var sit=q('s-sit'), roll=q('s-roll');
     var walkF=[q('s-walka'),q('s-walk'),q('s-walkb'),q('s-walk')];
-    var runF=[q('s-runa'),q('s-run'),q('s-runb'),q('s-run')];
-    var uniq=[sit,roll,q('s-walk'),q('s-walka'),q('s-walkb'),q('s-run'),q('s-runa'),q('s-runb')];
+    var runF=[q('s-runa'),q('s-runb'),q('s-runc'),q('s-rund'),q('s-rune'),q('s-runf')];
+    var uniq=[sit,roll,q('s-walk'),q('s-walka'),q('s-walkb'),q('s-run'),q('s-runa'),q('s-runb'),q('s-runc'),q('s-rund'),q('s-rune'),q('s-runf')];
     if(bar) bar.style.cursor="url(\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2226%22%20height%3D%2226%22%20viewBox%3D%220%200%2012%2012%22%3E%3Crect%20x%3D%224%22%20y%3D%220%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%220%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%220%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%220%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%221%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ffb6c1%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%222%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ffb6c1%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%223%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ffb6c1%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2211%22%20y%3D%224%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ffb6c1%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2211%22%20y%3D%225%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ffb6c1%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2211%22%20y%3D%226%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ffb6c1%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2211%22%20y%3D%227%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%228%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%221%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%229%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%223%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23ec6a7e%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%2210%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%225%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%229%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22%23bd4356%22%2F%3E%3C%2Fsvg%3E\") 13 13, auto";
     var mq=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)');
     if(mq&&mq.matches){ return; }
@@ -1457,7 +1473,7 @@
       cat.style.transform='translate('+rx+'px,'+yy+'px) rotate('+rot+'deg)';
       var cur;
       if(playing) cur=roll;
-      else if(moving){ var F=interactive?runF:walkF, st=interactive?14:8; cur=F[Math.floor(rdist/st)%F.length]; }
+      else if(moving){ var F=interactive?runF:walkF, st=interactive?9:8; cur=F[Math.floor(rdist/st)%F.length]; }
       else cur=sit;
       showOnly(cur);
       var sc='scaleX('+facing+')'; for(var i=0;i<uniq.length;i++) uniq[i].style.transform=sc;
@@ -1529,7 +1545,7 @@
         return 0; }
       function build(){ zone();
         var gutter=Math.max(0,bandL)+Math.max(0,W-bandR);
-        var n=Math.round(clamp(gutter*H/2200, 80, 700)); parts=[];
+        var n=Math.round(clamp(gutter*H/1571, 112, 980)); parts=[];  /* yoğunluk +%40 */
         for(var i=0;i<n;i++) parts.push({x:spawnX(), y:rr()*H, vy:rr()*.30+.10, drift:(rr()-.5)*.34, ph:rr()*6.28, sp:rr()*.02+.008, r:rr()*6+2.5, a:rr()*.5+.30}); }
       function resize(){ W=innerWidth; H=innerHeight; canvas.width=W*dpr; canvas.height=H*dpr;
         canvas.style.width=W+'px'; canvas.style.height=H+'px'; ctx.setTransform(dpr,0,0,dpr,0,0); build(); if(reduced) draw(); }
