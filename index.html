@@ -152,9 +152,9 @@
                   data-en="Set up an LLM integration for AI-powered multilingual text generation, together with security checks.">
                 Yapay zeka ile çok dilli metin üretimi sağlayan LLM entegrasyonunu güvenlik kontrolleriyle birlikte kurdum.
               </li>
-              <li data-tr="Bütün liste sayfalarında, aktif görünüme (seçili kolon ve filtrelere) göre dinamik olarak dışa aktaran bir Excel export sistemi kurdum."
-                  data-en="Built an Excel export system that dynamically exports every listing page according to the active view (selected columns and filters).">
-                Bütün liste sayfalarında, aktif görünüme (seçili kolon ve filtrelere) göre dinamik olarak dışa aktaran bir Excel export sistemi kurdum.
+              <li data-tr="Liste sayfalarında seçili kolon ve filtrelere göre dinamik Excel aktarımı kurdum."
+                  data-en="Built dynamic Excel export driven by the active columns and filters across list pages.">
+                Liste sayfalarında seçili kolon ve filtrelere göre dinamik Excel aktarımı kurdum.
               </li>
               <li data-tr="Uygulama içi yazılım talep sistemini kurdum. Admin/Kullanıcı ayrımı olan, içinde iletişim kurulabilen ve bildirim alınabilen bir yapı."
                   data-en="Built the in-app software request system — with admin/user roles, in-app messaging and notifications.">
@@ -204,6 +204,7 @@
         <article class="card" data-tilt>
           <div class="proj-top">
             <h3>CDR Fraud Detection</h3>
+            <a class="card-link" href="https://ahaygun.github.io/go-cdr-fraud-detector/" target="_blank" rel="noopener">Canlı ↗</a>
             <a class="card-link" href="https://github.com/ahaygun/go-cdr-fraud-detector" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
           <p class="lead" data-tr="Akan CDR (çağrı kaydı) verisinden gerçek zamanlı telekom fraud tespiti — Kafka üzerinde event-driven bir pipeline, üç bağımsız fraud kuralını ayrı ayrı deploy edilebilir mikroservislerde çalıştırır."
@@ -252,23 +253,23 @@
             <h3>Fatura-Fiş Botu</h3>
             <a class="card-link" href="assets/fatura-fis-botu-poster.pdf" target="_blank" rel="noopener">Poster ↗</a>
           </div>
-          <p class="lead" data-tr="Bitirme projesi — Türkçe fiş ve faturaları OCR ve NLP ile yapılandırılmış finansal veriye çeviren, çok kiracılı bir Akıllı Doküman İşleme (IDP) sistemi."
-             data-en="Graduation project — a multi-tenant Intelligent Document Processing (IDP) system that turns Turkish receipts and invoices into structured financial data using OCR and NLP.">
-            Bitirme projesi — Türkçe fiş ve faturaları OCR ve NLP ile yapılandırılmış finansal veriye çeviren, çok kiracılı bir Akıllı Doküman İşleme (IDP) sistemi.
+          <p class="lead" data-tr="Bitirme projesi — Türkçe fiş ve faturaları OCR + NLP ile yapılandırılmış finansal veriye çeviren bir görsel işleme sistemi."
+             data-en="Graduation project — an image-processing system that turns Turkish receipts and invoices into structured financial data using OCR and NLP.">
+            Bitirme projesi — Türkçe fiş ve faturaları OCR + NLP ile yapılandırılmış finansal veriye çeviren bir görsel işleme sistemi.
           </p>
           <div class="impact">
             <ul>
-              <li data-tr="Go modüler monolit; Redis + Asynq iş kuyruğu ve worker havuzuyla ağır OCR/çıkarım işleri asenkron çalışır."
-                  data-en="Go modular monolith; a Redis + Asynq job queue and worker pool run the heavy OCR/extraction work asynchronously.">
-                Go modüler monolit; Redis + Asynq iş kuyruğu ve worker havuzuyla ağır OCR/çıkarım işleri asenkron çalışır.
+              <li data-tr="Go modüler monolit; ağır OCR/çıkarım işleri Redis + Asynq iş kuyruğuyla asenkron çalışır."
+                  data-en="Go modular monolith; heavy OCR/extraction work runs asynchronously on a Redis + Asynq job queue.">
+                Go modüler monolit; ağır OCR/çıkarım işleri Redis + Asynq iş kuyruğuyla asenkron çalışır.
               </li>
-              <li data-tr="Uçtan uca pipeline: OpenCV ön işleme → Tesseract-LSTM OCR → BERTurk NER → SVM/RF ile harcama sınıflandırma."
-                  data-en="End-to-end pipeline: OpenCV preprocessing → Tesseract-LSTM OCR → BERTurk NER → SVM/RF expense classification.">
-                Uçtan uca pipeline: OpenCV ön işleme → Tesseract-LSTM OCR → BERTurk NER → SVM/RF ile harcama sınıflandırma.
+              <li data-tr="Görüntüden veriye 4 aşamalı pipeline: ön işleme → OCR → varlık çıkarımı → harcama sınıflandırma (OpenCV · Tesseract · BERTurk · ML)."
+                  data-en="Four-stage image-to-data pipeline: preprocessing → OCR → entity extraction → expense classification (OpenCV · Tesseract · BERTurk · ML).">
+                Görüntüden veriye 4 aşamalı pipeline: ön işleme → OCR → varlık çıkarımı → harcama sınıflandırma (OpenCV · Tesseract · BERTurk · ML).
               </li>
-              <li data-tr="PostgreSQL (tenant izolasyonu + audit) ve MinIO depolama; durum makinesi ve güven skoruna dayalı otomatik onay / insan denetimi."
-                  data-en="PostgreSQL (tenant isolation + audit) and MinIO storage; a state machine with confidence-based auto-approval / human-in-the-loop review.">
-                PostgreSQL (tenant izolasyonu + audit) ve MinIO depolama; durum makinesi ve güven skoruna dayalı otomatik onay / insan denetimi.
+              <li data-tr="Çok kiracılı PostgreSQL (tenant izolasyonu + audit) + MinIO depolama; güven skoruna göre otomatik onay ya da insan denetimi."
+                  data-en="Multi-tenant PostgreSQL (tenant isolation + audit) + MinIO storage; auto-approval or human review based on a confidence score.">
+                Çok kiracılı PostgreSQL (tenant izolasyonu + audit) + MinIO depolama; güven skoruna göre otomatik onay ya da insan denetimi.
               </li>
             </ul>
           </div>
