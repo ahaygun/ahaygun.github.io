@@ -156,17 +156,17 @@
                   data-en="Built dynamic Excel export driven by the active columns and filters across list pages.">
                 Liste sayfalarında seçili kolon ve filtrelere göre dinamik Excel aktarımı kurdum.
               </li>
-              <li data-tr="Uygulama içi yazılım talep sistemini kurdum. Admin/Kullanıcı ayrımı olan, içinde iletişim kurulabilen ve bildirim alınabilen bir yapı."
-                  data-en="Built the in-app software request system — with admin/user roles, in-app messaging and notifications.">
-                Uygulama içi yazılım talep sistemini kurdum. Admin/Kullanıcı ayrımı olan, içinde iletişim kurulabilen ve bildirim alınabilen bir yapı.
+              <li data-tr="Uygulama içi yazılım talep sistemini kurdum. Admin/Kullanıcı ayrımı olan, içinde iletişim kurulabilen ve bildirim sistemine sahip bir yapı inşa ettim."
+                  data-en="Built the in-app software request system — with admin/user roles, in-app messaging and a notification system.">
+                Uygulama içi yazılım talep sistemini kurdum. Admin/Kullanıcı ayrımı olan, içinde iletişim kurulabilen ve bildirim sistemine sahip bir yapı inşa ettim.
               </li>
               <li data-tr="Proje genelinde i18n ile 3 dilli hata mesajı çeviri altyapısını implemente ettim."
                   data-en="Implemented a project-wide three-language error-message translation system (i18n).">
                 Proje genelinde i18n ile 3 dilli hata mesajı çeviri altyapısını implemente ettim.
               </li>
-              <li data-tr="Projenin tamamında arama, filtre ve sayfalama sorgularında SQL sorguları yaptım."
-                  data-en="Wrote SQL queries for search, filtering and pagination across the entire project.">
-                Projenin tamamında arama, filtre ve sayfalama sorgularında SQL sorguları yaptım.
+              <li data-tr="Projenin tamamında arama, filtre ve sayfalama sorgularında SQL sorgularını güncelledim ve performansı arttırdım."
+                  data-en="Updated the SQL for search, filtering and pagination queries across the project and improved its performance.">
+                Projenin tamamında arama, filtre ve sayfalama sorgularında SQL sorgularını güncelledim ve performansı arttırdım.
               </li>
             </ul>
           </div>
@@ -213,17 +213,13 @@
           </p>
           <div class="impact">
             <ul>
-              <li data-tr="Üç fraud kuralı, üç farklı teknik: velocity (Redis kayan pencere), impossible-travel (stateful son-konum + gRPC hücre-coğrafya), IRSF (premium harcama penceresi)."
-                  data-en="Three fraud rules, three techniques: velocity (Redis sliding window), impossible-travel (stateful last-location + gRPC cell-geo) and IRSF (premium-spend window).">
-                Üç fraud kuralı, üç farklı teknik: velocity (Redis kayan pencere), impossible-travel (stateful son-konum + gRPC hücre-coğrafya), IRSF (premium harcama penceresi).
+              <li data-tr="Üç fraud kuralı, üç teknik: velocity (Redis kayan pencere), impossible-travel (stateful konum + gRPC), IRSF (premium harcama penceresi)."
+                  data-en="Three fraud rules, three techniques: velocity (Redis sliding window), impossible-travel (stateful location + gRPC) and IRSF (premium-spend window).">
+                Üç fraud kuralı, üç teknik: velocity (Redis kayan pencere), impossible-travel (stateful konum + gRPC), IRSF (premium harcama penceresi).
               </li>
-              <li data-tr="MSISDN-key'li partition + manuel offset commit + record_id idempotency → at-least-once teslim pratikte effectively-once."
-                  data-en="Partition-by-subscriber + manual offset commit + record_id idempotency make at-least-once effectively-once.">
-                MSISDN-key'li partition + manuel offset commit + record_id idempotency → at-least-once teslim pratikte effectively-once.
-              </li>
-              <li data-tr="Enrichment servisi düşse bile velocity kuralı ve pipeline çalışmaya devam ediyor (graceful degradation)."
-                  data-en="Even if the enrichment service goes down, the velocity rule and the pipeline keep running (graceful degradation).">
-                Enrichment servisi düşse bile velocity kuralı ve pipeline çalışmaya devam ediyor (graceful degradation).
+              <li data-tr="MSISDN-key'li partition + record_id idempotency ile at-least-once teslim pratikte effectively-once; enrichment düşse pipeline çalışmaya devam eder."
+                  data-en="Partition-by-subscriber + record_id idempotency make at-least-once effectively-once; the pipeline keeps running even if enrichment is down.">
+                MSISDN-key'li partition + record_id idempotency ile at-least-once teslim pratikte effectively-once; enrichment düşse pipeline çalışmaya devam eder.
               </li>
               <li data-tr="Helm ile Kubernetes'e deploy; KEDA tüketiciyi Kafka lag'ine göre 1→3 replica'ya ölçekliyor."
                   data-en="Deployed to Kubernetes with Helm; KEDA autoscales the consumer 1→3 on Kafka lag.">
@@ -322,31 +318,23 @@
             <h3>API Gateway · Rate Limiter</h3>
             <a class="card-link" href="https://github.com/ahaygun/api-gateway-rate-limiter" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
-          <p class="lead" data-tr="Go ile production-shaped bir API Gateway — backend servislerin önünde yönlendirme, auth ve rate limiting uygular."
-             data-en="A production-shaped API gateway in Go — routing, auth and rate limiting in front of backend services.">
-            Go ile production-shaped bir API Gateway — backend servislerin önünde yönlendirme, auth ve rate limiting uygular.
+          <p class="lead" data-tr="Go ile bir API Gateway — backend servislerin önünde yönlendirme, auth ve rate limiting."
+             data-en="An API gateway in Go — routing, auth and rate limiting in front of backend services.">
+            Go ile bir API Gateway — backend servislerin önünde yönlendirme, auth ve rate limiting.
           </p>
           <div class="impact">
             <ul>
-              <li data-tr="İstemci bazlı token bucket rate limiting; in-memory ya da Redis + Lua ile dağıtık/atomik."
-                  data-en="Per-client token-bucket rate limiting; in-memory or distributed/atomic via Redis + Lua.">
-                İstemci bazlı token bucket rate limiting; in-memory ya da Redis + Lua ile dağıtık/atomik.
+              <li data-tr="İstemci bazlı rate limiting (token bucket); in-memory veya Redis ile dağıtık."
+                  data-en="Per-client rate limiting (token bucket); in-memory or distributed via Redis.">
+                İstemci bazlı rate limiting (token bucket); in-memory veya Redis ile dağıtık.
               </li>
-              <li data-tr="Dayanıklılık: upstream başına circuit breaker + exponential backoff'lu retry."
-                  data-en="Resilience: per-upstream circuit breaker + exponential-backoff retries.">
-                Dayanıklılık: upstream başına circuit breaker + exponential backoff'lu retry.
+              <li data-tr="Dayanıklılık: her upstream için circuit breaker ve retry."
+                  data-en="Resilience: per-upstream circuit breaker and retries.">
+                Dayanıklılık: her upstream için circuit breaker ve retry.
               </li>
-              <li data-tr="Gözlemlenebilirlik: Prometheus metrikleri + hazır Grafana dashboard."
-                  data-en="Observability: Prometheus metrics + a provisioned Grafana dashboard.">
-                Gözlemlenebilirlik: Prometheus metrikleri + hazır Grafana dashboard.
-              </li>
-              <li data-tr="Tek komutluk docker-compose ile tüm yığın ayağa kalkıyor; fault-injection demosunda circuit breaker'ın açılıp-kapanışı canlı izleniyor."
-                  data-en="The whole stack comes up with a one-command docker-compose; a fault-injection demo shows the circuit breaker tripping and recovering live.">
-                Tek komutluk docker-compose ile tüm yığın ayağa kalkıyor; fault-injection demosunda circuit breaker'ın açılıp-kapanışı canlı izleniyor.
-              </li>
-              <li data-tr="API-key auth, request-ID'li loglama ve graceful shutdown."
-                  data-en="API-key auth, request-ID'd logging and graceful shutdown.">
-                API-key auth, request-ID'li loglama ve graceful shutdown.
+              <li data-tr="Prometheus + Grafana ile izleme; docker-compose ile tüm yığın tek komutta ayağa kalkıyor."
+                  data-en="Monitoring with Prometheus + Grafana; the whole stack comes up with a one-command docker-compose.">
+                Prometheus + Grafana ile izleme; docker-compose ile tüm yığın tek komutta ayağa kalkıyor.
               </li>
             </ul>
           </div>

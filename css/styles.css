@@ -132,8 +132,8 @@
   }
   .navlinks {
     display: flex;
-    justify-content: space-between;
-    gap: 4px;
+    justify-content: center;
+    gap: 6px;
     min-width: 0;
   }
   .navlinks a {
