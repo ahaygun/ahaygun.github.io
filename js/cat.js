@@ -12,13 +12,15 @@
     if(mq&&mq.matches){ return; }
     var INSET=0, CAT_W=40, SPEED=0.35, CHASE=1.4, ARRIVE=2, PLAY_RANGE=34, WAIT=2000, BOUNCE=1.5, NEAR=85;
     var catX=INSET, facing=1, dist=0, ambTarget=null, ambPhase='go', ambWaitEnd=0,
-        haveMouse=false, mx=0, my=0, prevInt=false, rdist=0, lastRx=null, raf=null, on=false;
+        haveMouse=false, mx=0, my=0, prevInt=false, rdist=0, lastRx=null, raf=null, on=false, lastNow=0;
     document.addEventListener('mousemove',function(e){ haveMouse=true; mx=e.clientX; my=e.clientY; });
     document.addEventListener('mouseleave',function(){ haveMouse=false; });
     function clamp(v,a,b){return v<a?a:v>b?b:v;}
     function distToRect(px,py,r){ var dx=Math.max(r.left-px,0,px-r.right), dy=Math.max(r.top-py,0,py-r.bottom); return Math.sqrt(dx*dx+dy*dy); }
     function showOnly(el){ for(var i=0;i<uniq.length;i++) uniq[i].style.opacity=(uniq[i]===el)?1:0; }
     function tick(now){
+      var dt=lastNow?now-lastNow:16.667; lastNow=now; if(dt>50)dt=50;
+      var fs=dt/16.667;   /* 60fps'e normalize — yüksek Hz ekranlarda hız sabit kalır */
       var rect=run.getBoundingClientRect(), brect=bar.getBoundingClientRect();
       var span=Math.max(0,run.clientWidth-CAT_W-INSET*2);
       var interactive = haveMouse && distToRect(mx,my,brect) < NEAR;
@@ -34,7 +36,7 @@
         } else targetX=ambTarget;
       }
       var dx=targetX-catX, ad=Math.abs(dx), moving=ad>ARRIVE;
-      if(moving){ var step=Math.min(interactive?CHASE:SPEED,ad); catX+=(dx>0?1:-1)*step; facing=dx>0?1:-1; dist+=step; }
+      if(moving){ var step=Math.min((interactive?CHASE:SPEED)*fs,ad); catX+=(dx>0?1:-1)*step; facing=dx>0?1:-1; dist+=step; }
       else if(!interactive && ambPhase==='go'){ ambPhase='wait'; ambWaitEnd=now+WAIT; }
       var overBar=interactive && my<=rect.bottom+18 && my>=rect.top-18;
       var playing=interactive && !moving && overBar && ad<=PLAY_RANGE;
