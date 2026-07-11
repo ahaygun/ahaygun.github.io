@@ -278,7 +278,7 @@
     padding: 0 18px;
     border-radius: 999px;
     background: var(--accent);
-    border: 1px solid #e0763a;
+    border: 1px solid var(--accent-deep);
     box-shadow: 0 6px 20px rgba(var(--accent-rgb),.18);
     user-select: none;
     transition: box-shadow .25s ease, filter .2s ease;
@@ -440,7 +440,52 @@
     border-color: var(--accent);
   }
   .btn.primary:hover { background: var(--accent-2); border-color: var(--accent-2); }
-  .btn .arrow { font-family: var(--display); font-size: 16px; }
+  .btn .arrow { font-family: var(--display); font-size: 16px; transition: transform .2s ease; }
+  .btn:not(.primary) .arrow { color: var(--accent); }
+  .btn:not(.primary):hover { border-color: var(--accent); }
+  .btn:not(.primary):hover .arrow { transform: translate(2px, -2px); }
+
+  /* ─── Eğitim şeridi (kompakt kredensiyal band) ─── */
+  .edu-band {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    flex-wrap: wrap;
+    margin: 2px 0 clamp(30px, 4vw, 46px);
+    padding: 13px 18px;
+    border: 1px solid var(--line-2);
+    border-radius: var(--r);
+    background: linear-gradient(90deg, rgba(var(--accent-rgb), .12), rgba(var(--accent-rgb), .03) 55%, transparent);
+    transition: border-color .25s ease, box-shadow .25s ease;
+  }
+  .edu-band:hover {
+    border-color: var(--accent);
+    box-shadow: 0 6px 22px rgba(var(--accent-rgb), .12);
+  }
+  .edu-cap { width: 24px; height: 24px; flex: none; color: var(--accent); }
+  .edu-school {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    color: var(--ink);
+  }
+  .edu-dot { color: var(--accent); font-weight: 700; }
+  .edu-dept { font-size: 14.5px; color: var(--ink-2); }
+  .edu-degree {
+    margin-left: auto;
+    font: 600 11px var(--mono);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 3px 11px;
+    white-space: nowrap;
+  }
+  @media (max-width: 560px) {
+    .edu-degree { margin-left: 0; }
+  }
 
   /* ─── Section primitive ─── */
   section.block {
@@ -645,6 +690,7 @@
     border-radius: 999px;
     color: var(--ink);
     letter-spacing: 0;
+    white-space: nowrap;
     transition: border-color .2s ease, color .2s ease;
   }
   .skill-group li .ico {
@@ -663,21 +709,34 @@
   /* ─── Projects ─── */
   .card .proj-top {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 10px;
+    flex-wrap: wrap;
   }
   .card .proj-top h3 { margin: 0; }
   .card .card-link {
-    font: 500 12px var(--mono);
+    font: 600 13px var(--mono);
     color: var(--accent);
-    letter-spacing: .04em;
+    letter-spacing: .03em;
     white-space: nowrap;
     flex: none;
-    transition: color .2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 11px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: rgba(var(--accent-rgb), .08);
+    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
   }
-  .card .card-link:hover { color: var(--accent-2); text-decoration: underline; }
+  .card .card-link:hover {
+    background: var(--accent);
+    color: var(--on-accent);
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
   .card ul.tech {
     list-style: none;
     margin: 16px 0 0;
